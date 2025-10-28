@@ -1,0 +1,1 @@
+import{k as e,j as t}from"./index-DqcJGOsq.js";import{G as o}from"./gallery--z42ux_f.js";import"./useBaseQuery-zgPbw50b.js";const h=()=>{let[r]=e();const a=r.get("search"),s=r.get("boardId");return t.jsx(o,{search:a,boardId:s})};export{h as default};
