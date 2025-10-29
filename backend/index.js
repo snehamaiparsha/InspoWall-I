@@ -14,7 +14,8 @@ app.use(
   cors({
     origin: [
       // "http://localhost:5173", // for local development
-      "https://i-inspowall.netlify.app", // your Netlify live site
+      /\.netlify\.app$/, // your Netlify live site
+      ,
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
