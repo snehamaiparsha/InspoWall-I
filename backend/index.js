@@ -10,7 +10,16 @@ import fileUpload from "express-fileupload";
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // for local development
+      "https://i-inspowall.netlify.app", // your Netlify live site
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 app.use(fileUpload());
 app.get("/", (req, res) => {
