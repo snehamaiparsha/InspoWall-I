@@ -1,33 +1,90 @@
 .collections {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 20px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
 }
 
+/* Each board card */
 .collection {
-  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: all 0.25s ease;
   cursor: pointer;
 }
 
-.collection img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 16px;
+.collection:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
+/* Board image */
+.collection img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #f1f1f1;
+  transition: transform 0.3s ease;
+}
+
+.collection:hover img {
+  transform: scale(1.03);
+}
+
+/* Board info section */
 .collectionInfo {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
+  padding: 14px 16px;
 }
 
 .collectionInfo h1 {
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 17px;
+  color: #222;
+  line-height: 1.4;
 }
 
 .collectionInfo span {
-  color: gray;
+  color: #888;
   font-size: 13px;
+}
+
+/* Hover accent */
+.collection:hover .collectionInfo h1 {
+  color: #e91e63;
+}
+
+/* Responsive grid */
+@media (max-width: 1200px) {
+  .collections {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .collections {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .collection img {
+    height: 160px;
+  }
+
+  .collectionInfo h1 {
+    font-size: 15px;
+  }
 }

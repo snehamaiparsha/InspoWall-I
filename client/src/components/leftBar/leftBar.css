@@ -1,36 +1,113 @@
 .leftBar {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
-  width: 72px;
+  align-items: center;
   height: 100vh;
-  position: sticky;
+  width: 90px;
+  background: #ffffff;
+  border-right: 1px solid #e6e6e6;
+  padding: 20px 0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  left: 0;
   top: 0;
-  padding: 16px 0px;
-  border-right: 1px solid #e9e9e9;
+  z-index: 100;
 }
 
+/* Logo area */
+.logo {
+  width: 120px !important;
+  height: auto !important;
+  margin-bottom: 30px;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* Menu icons container */
 .menuIcons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 25px;
+  width: 100%;
 }
 
+/* Each icon wrapper */
 .menuIcon {
-  width: 48px;
-  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  cursor: pointer;
 }
 
-.menuIcon:hover {
-  background-color: #f1f1f1;
-}
-
-.logo {
+/* Default icon look */
+.menuIcon img {
   width: 24px;
   height: 24px;
+  object-fit: contain;
+  filter: grayscale(60%);
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+/* Hover animation */
+.menuIcon:hover {
+  background: #ffe7ea;
+}
+
+.menuIcon:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Settings icon at bottom */
+.leftBar > .menuIcon:last-child {
+  margin-bottom: 10px;
+}
+
+/* Active link look (if you add active class later) */
+.menuIcon.active {
+  background: #fbe9f3;
+  box-shadow: inset 0 0 6px rgba(255, 20, 147, 0.15);
+}
+
+.menuIcon.active img {
+  filter: grayscale(0%);
+}
+
+/* Responsive (mobile) */
+@media (max-width: 768px) {
+  .leftBar {
+    flex-direction: row;
+    height: 70px;
+    width: 100%;
+    border-right: none;
+    border-top: 1px solid #eaeaea;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+    padding: 0 15px;
+  }
+
+  .logo {
+    width: 90px !important;
+    margin-bottom: 0;
+  }
+
+  .menuIcons {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .menuIcon {
+    width: 40px;
+    height: 40px;
+  }
 }

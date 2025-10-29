@@ -30,7 +30,7 @@ const ProfilePage = () => {
         className="profileImg"
         w={100}
         h={100}
-        path={data.img || "/general/noAvatar.png"}
+        path={data.img || "/general/pinkavatar.png"}
         alt=""
       />
       <h1 className="profileName">{data.displayName}</h1>

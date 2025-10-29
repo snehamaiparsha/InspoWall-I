@@ -2,20 +2,13 @@ import { useState } from "react";
 import "./userButton.css";
 import Image from "../image/image";
 import apiRequest from "../../utils/apiRequest";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom"; // ✅ fixed import
 import useAuthStore from "../../utils/authStore";
 
 const UserButton = () => {
   const [open, setOpen] = useState(false);
-
   const navigate = useNavigate();
-
-  // TEMP
-  // const currentUser = true;
-
   const { currentUser, removeCurrentUser } = useAuthStore();
-
-  console.log(currentUser);
 
   const handleLogout = async () => {
     try {
@@ -28,17 +21,25 @@ const UserButton = () => {
   };
 
   return currentUser ? (
-    <div className="userButton">
-      <Image path={currentUser.img || "/general/noAvatar.png"} alt="" />
+    <div className={`userButton ${open ? "open" : ""}`}>
+      <Image
+        path={currentUser.img || "/general/pinkavatar.png"}
+        alt=""
+        className="userAvatar"
+      />
       <div onClick={() => setOpen((prev) => !prev)}>
         <Image path="/general/arrow.svg" alt="" className="arrow" />
       </div>
       {open && (
         <div className="userOptions">
-          <Link to={`/profile/${currentUser.username}`} className="userOption">
+          <Link
+            to={`/${currentUser.username}`}
+            className="userOption"
+            onClick={() => setOpen(false)}
+          >
             Profile
           </Link>
-          <div className="userOption">Setting</div>
+
           <div className="userOption" onClick={handleLogout}>
             Logout
           </div>

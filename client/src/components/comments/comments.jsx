@@ -14,20 +14,21 @@ const Comments = ({ id }) => {
 
   if (error) return "An error has occurred: " + error.message;
 
-  console.log(data);
-
   return (
     <div className="comments">
-      <div className="commentList">
-        <span className="commentCount">
-          {data.length === 0 ? "No comments" : data.length + " Comments"}
-        </span>
-        {/* COMMENT */}
-        {data.map((comment) => (
-          <Comment key={comment._id} comment={comment} />
-        ))}
+      <div className="commentsContent">
+        <div className="commentList">
+          <span className="commentCount">
+            {data.length === 0 ? "No comments" : data.length + " Comments"}
+          </span>
+          {data.map((comment) => (
+            <Comment key={comment._id} comment={comment} />
+          ))}
+        </div>
+
+        {/* comment input at bottom */}
+        <CommentForm id={id} classname="commentTop" />
       </div>
-      <CommentForm id={id} />
     </div>
   );
 };

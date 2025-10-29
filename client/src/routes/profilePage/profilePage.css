@@ -1,79 +1,207 @@
+/* ===============================
+   PROFILE PAGE MAIN CONTAINER
+================================== */
+
 .profilePage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
+  padding: 48px 16px 80px;
+  background-color: #fff;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  margin-left: 100px;
 }
+
+/* ===============================
+   PROFILE IMAGE & NAME
+================================== */
 
 .profileImg {
   border-radius: 50%;
   object-fit: cover;
+  width: 140px;
+  height: 140px;
+  border: 4px solid #ffccd4;
+  box-shadow: 0 6px 18px rgba(255, 107, 129, 0.25);
+  transition: transform 0.25s ease;
+}
+
+.profileImg:hover {
+  transform: scale(1.05);
 }
 
 .profileName {
-  font-size: 36px;
-  font-weight: 500;
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
 }
 
 .profileUsername {
-  font-weight: 300;
-  color: gray;
+  font-weight: 400;
+  color: #888;
+  font-size: 16px;
 }
 
 .followCounts {
   font-weight: 500;
+  color: #555;
+  background-color: #fff4f6;
+  padding: 8px 20px;
+  border-radius: 24px;
+  font-size: 14px;
+  box-shadow: 0 3px 8px rgba(255, 107, 129, 0.15);
 }
+
+/* ===============================
+   INTERACTIONS & BUTTONS
+================================== */
 
 .profileInteractions {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
+  margin-top: 16px;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 32px;
+  box-shadow: 0 3px 10px rgba(255, 107, 129, 0.15);
+}
+
+.profileInteractions img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.profileInteractions img:hover {
+  transform: scale(1.15);
 }
 
 .profileButtons {
   display: flex;
-  gap: 16px;
+  gap: 12px;
 }
+
+/* ===============================
+   BUTTON STYLING
+================================== */
 
 .profileButtons button {
   border: none;
-  padding: 16px;
-  border-radius: 32px;
-  font-weight: bold;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
   cursor: pointer;
+  background-color: #fff;
+  border: 2px solid #ff6b81;
+  color: #ff6b81;
+  transition: all 0.25s ease;
+}
+
+.profileButtons button:hover {
+  background-color: #ff6b81;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 129, 0.35);
 }
 
 .profileButtons button:last-child {
-  background-color: #e50829;
+  background-color: #ff6b81;
   color: white;
+  border: none;
 }
 
+.profileButtons button:last-child:hover {
+  background-color: #ff4b5c;
+}
+
+/* Disabled follow button */
 .profileButtons button:last-child:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-.profileButtons button:last-child:hover {
-  background-color: #c1011e;
-}
+/* ===============================
+   PROFILE OPTIONS (CREATED/SAVED)
+================================== */
 
 .profileOptions {
   display: flex;
-  gap: 16px;
-  margin-top: 32px;
-  margin-bottom: 16px;
+  gap: 32px;
+  margin-top: 40px;
+  margin-bottom: 24px;
   font-weight: 500;
+  font-size: 16px;
+  color: #666;
+  position: relative;
 }
 
 .profileOptions span {
   cursor: pointer;
-  padding: 8px 0px;
+  padding: 8px 4px;
+  transition: all 0.25s ease;
+  position: relative;
 }
 
 .profileOptions span:hover {
-  color: gray;
+  color: #ff6b81;
 }
 
 .active {
-  border-bottom: 3px solid black;
+  color: #ff6b81;
+  font-weight: 600;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #ff6b81, #ff4b5c);
+  transition: 0.3s ease;
+}
+
+/* ===============================
+   RESPONSIVENESS
+================================== */
+
+@media (max-width: 768px) {
+  .profilePage {
+    padding: 24px 12px 60px;
+  }
+
+  .profileImg {
+    width: 110px;
+    height: 110px;
+  }
+
+  .profileName {
+    font-size: 26px;
+  }
+
+  .profileInteractions {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .profileButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .profileButtons button {
+    width: 100%;
+  }
+
+  .profileOptions {
+    gap: 20px;
+  }
 }
