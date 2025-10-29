@@ -13,6 +13,9 @@ app.use(express.json());
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(cookieParser());
 app.use(fileUpload());
+app.get("/", (req, res) => {
+  res.send("InspoWall Backend is Running 🚀");
+});
 
 app.use("/users", userRouter);
 app.use("/pins", pinRouter);
