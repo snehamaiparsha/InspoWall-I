@@ -64,9 +64,9 @@ const ProfilePage = () => {
         </span>
       </div>
       {type === "created" ? (
-        <Gallery userId={data._id} />
-      ) : (
         <Boards userId={data._id} />
+      ) : (
+        <Gallery userId={data._id} saved />
       )}
     </div>
   );

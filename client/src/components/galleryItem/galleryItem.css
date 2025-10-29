@@ -28,7 +28,7 @@
 
 .galleryItem:hover .saveButton {
   display: block;
-  background-color: #e50829;
+  background-color: #ff6b81;
   color: white;
   border-radius: 24px;
   padding: 12px 16px;

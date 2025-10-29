@@ -5,10 +5,13 @@ import apiRequest from "../../utils/apiRequest";
 import { format } from "timeago.js";
 import { Link } from "react-router";
 
-const Boards = ({ userId }) => {
+const Boards = ({ userId, saved = false }) => {
   const { isPending, error, data } = useQuery({
-    queryKey: ["boards", userId],
-    queryFn: () => apiRequest.get(`/boards/${userId}`).then((res) => res.data),
+    queryKey: [saved ? "savedBoards" : "userBoards", userId],
+    queryFn: () =>
+      saved
+        ? apiRequest.get(`/boards/saved/${userId}`).then((res) => res.data)
+        : apiRequest.get(`/boards/${userId}`).then((res) => res.data),
   });
 
   if (isPending) return "Loading...";
