@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "http://localhost:5173", // for local development
+      // "http://localhost:5173", // for local development
       "https://i-inspowall.netlify.app", // your Netlify live site
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
