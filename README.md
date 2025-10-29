@@ -17,9 +17,9 @@ It combines elegant UI with robust backend logic, showcasing skills in modern we
 ---
 
 ## ✨ Key Features  
-- User authentication and profile management  
+- User authentication and profile management using jwt and zustand
 - Add, view, and organize inspiration posts  
-- Responsive and mobile-friendly layout  
+- Responsive and mobile-friendly layout using media queries
 - Smooth infinite scrolling and lazy loading  
 - Optimized media rendering using ImageKit  
 - Real-time data fetching with React Query  
@@ -29,7 +29,7 @@ It combines elegant UI with robust backend logic, showcasing skills in modern we
 ---
 
 ## 🧩 Tech Stack  
-**Frontend:** React.js, React Query, Axios, Tailwind CSS  
+**Frontend:** React.js, React Query, Axios,  
 **Backend:** Node.js, Express.js  
 **Database:** MongoDB  
 **Media Handling:** ImageKit  
@@ -38,10 +38,6 @@ It combines elegant UI with robust backend logic, showcasing skills in modern we
 
 ---
 
-## ⚙️ Getting Started  
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/snehamaiparsha/InspoWall-I.git
 
 
